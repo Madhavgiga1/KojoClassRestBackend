@@ -8,7 +8,8 @@ COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
-
+#ERROR: Could not find a version that satisfies the requirement requirements.txt (from versions: none)
+#HINT: You are attempting to install a package literally named "requirements.txt" (which cannot exist). Consider using the '-r' flag to install the packages listed in requirements.txt
 ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \

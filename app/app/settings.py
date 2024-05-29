@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ksp7qw9e1ut*i#8p6yx&=#3*y4regy+mww!h5eohn4#iknd=q%'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+#makemigrations are run through the following command
+
+#Python manage.py makemigrations
+#If the above commands says no changes detected, You can also do it for individual apps.
+#For example if you have 10 apps named a, b, c, d, e, f, g, h, i, j. You can run makemigrations individually for these apps.
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +82,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': os.environ.get('DB_HOST'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+
     }
 }
 
