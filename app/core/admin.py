@@ -13,7 +13,7 @@ class UserAdmin(BaseUserAdmin):
     ordering = ['id']
     list_display = ['enrollment', 'name']
     # This tuple defines the layout and grouping of fields in the user detail view (when editing or creating a user). Each tuple inside fieldsets represents 
-    # a section in the form, with the first element being the section's label (or None for no label), and the second element being a dictionary containing the fields for that section.
+    # a section in   the form, with the first element being the section's label (or None for no label), and the second element being a dictionary containing the fields for that section.
     fieldsets = (
         (None, {'fields': ('enrollment', 'password')}),
         (_('Personal Info'), {'fields': ('name',)}),
@@ -52,3 +52,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.Student, UserAdmin)
+admin.site.register(models.Assignement)

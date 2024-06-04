@@ -39,3 +39,16 @@ class Student(AbstractBaseUser,PermissionsMixin):
 
     USERNAME_FIELD= 'enrollment'
 
+class Assignement(models.Model):
+
+    id=models.CharField(max_length=100,unique=True)
+    name=models.CharField(max_length=200)
+    classid=models.CharField(max_length=200)
+    duedate=models.DateTimeField()
+    filelocation=models.CharField()
+    instructions=models.CharField(max_length=200)
+    subjectID=models.CharField(max_length=100)
+    teacherID=models.CharField(max_length=100)
+    teacher=models.CharField(max_length=100)
+
+    
