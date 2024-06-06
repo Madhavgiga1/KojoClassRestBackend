@@ -39,16 +39,18 @@ class Student(AbstractBaseUser,PermissionsMixin):
 
     USERNAME_FIELD= 'enrollment'
 
-class Assignement(models.Model):
+class Assignment(models.Model):
 
-    id=models.CharField(max_length=100,unique=True)
-    name=models.CharField(max_length=200)
-    classid=models.CharField(max_length=200)
-    duedate=models.DateTimeField()
-    filelocation=models.CharField()
-    instructions=models.CharField(max_length=200)
-    subjectID=models.CharField(max_length=100)
-    teacherID=models.CharField(max_length=100)
-    teacher=models.CharField(max_length=100)
+    id = models.CharField(max_length=100, primary_key=True)
+    name = models.CharField(max_length=200)
+    classid = models.CharField(max_length=200)
+    duedate = models.DateTimeField()
+    filelocation = models.CharField(max_length=255)  # Specifying max_length is recommended for CharField
+    instructions = models.CharField(max_length=200)
+    subjectID = models.CharField(max_length=100)
+    teacherID = models.CharField(max_length=100)
+    teacherName = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
     

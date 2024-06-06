@@ -52,4 +52,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(models.Student, UserAdmin)
-admin.site.register(models.Assignement)
+admin.site.register(models.Assignment)
