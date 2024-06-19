@@ -43,7 +43,7 @@ class Assignment(models.Model):
 
     id = models.CharField(max_length=100, primary_key=True)
     name = models.CharField(max_length=200)
-    classid = models.CharField(max_length=200)
+    sectionID = models.CharField(max_length=200)
     duedate = models.DateTimeField()
     filelocation = models.CharField(max_length=255)  # Specifying max_length is recommended for CharField
     instructions = models.CharField(max_length=200)
